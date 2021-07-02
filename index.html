@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Image background</title>
+</head>
+<body>
+    <div id="hero">
+        <div class="navbar">
+            <img src="img/logo.png" alt="" class="logo">
+            <div class="user">
+                <button type="button">explore</button>
+                <img src="img/adult-beard-boy-casual-220453.jpg" alt="">
+            </div>
+        </div>
+        <div class="container">
+            <div class="info">
+                <h1>DISCOVER</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Vitae dicta dignissimos aliquid <br> dolor itaque magnam illum, deserunt nostrum fugiat impedit numquam
+                    </p>
+                    <input type="text" placeholder="Search">
+            </div>
+        </div>
+        <div class="slider">
+            <img src="img/left.png" alt="" id="prev">
+            <div class="preview">
+                <img src="img/adventure-calm-clouds-dawn-414171 - Copy.jpg" class="active thumbnail">
+                <img src="img/person-on-a-bridge-near-a-lake-747964 - Copy.jpg" class="thumbnail">
+                <img src="img/person-riding-bike-making-trek-on-thin-air-71104 - Copy.jpg" class="thumbnail">
+                <img src="img/pink-flowers-photography-1128797 - Copy.jpg" class="thumbnail">
+                <img src="img/road-landscape-nature-forest-39811 - Copy.jpg" class="thumbnail">
+            </div>
+            <img src="img/right.png" alt="" id="next">
+        </div>
+    </div>
+
+    <script>
+        var prev = document.getElementById("prev")
+        var next = document.getElementById("next")
+        var thumbnail = document.getElementsByClassName("thumbnail")
+        var hero = document.getElementById('hero')
+
+        var backgroundImg = ["img/adventure-calm-clouds-dawn-414171.jpg",
+                             "img/person-on-a-bridge-near-a-lake-747964.jpg",
+                             "img/person-riding-bike-making-trek-on-thin-air-71104.jpg", 
+                             "img/pink-flowers-photography-1128797.jpg",
+                             "img/road-landscape-nature-forest-39811.jpg"]
+        let i = 0
+        next.onclick = () => {
+            if(i<4){
+                hero.style.backgroundImage = `url(${backgroundImg[i+1]})`
+                thumbnail[i+1].classList.add("active")
+                thumbnail[i].classList.remove("active")
+                i++ 
+            } 
+        }
+        prev.onclick = () => {
+            if(i>0){
+                hero.style.backgroundImage = `url(${backgroundImg[i-1]})`
+                thumbnail[i-1].classList.add("active")
+                thumbnail[i].classList.remove("active")
+                i--
+            }
+        }
+
+
+    </script>
+</body>
+</html>
